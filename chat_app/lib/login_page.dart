@@ -13,7 +13,6 @@ class LoginPage extends StatelessWidget {
           print('Button clicked');
         },
       ),
-      //TODO: Add the text and image from the design
       body: Column(
         children: [
           Text(
