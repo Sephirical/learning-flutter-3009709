@@ -4,8 +4,27 @@ import 'package:chat_app/widgets/chat_input.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({Key? key}) : super(key: key);
-
+  ChatPage({Key? key}) : super(key: key);
+  List<ChatMessageEntity> _messages = [
+    ChatMessageEntity(
+        id: '1234',
+        text: 'Hello this is Pooja!!!!!',
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        author: Author(userName: 'poojab26')
+    ),
+    ChatMessageEntity(
+        id: '1234',
+        text: 'Hello this is Pooja2!!!!!',
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        author: Author(userName: 'poojab26')
+    ),
+    ChatMessageEntity(
+        id: '1234',
+        text: 'Hello this is Pooja3!!!!!',
+        createdAt: DateTime.now().millisecondsSinceEpoch,
+        author: Author(userName: 'poojab263')
+    ),
+  ];
 
   //TODO: Create mock list
   @override
@@ -30,17 +49,14 @@ class ChatPage extends StatelessWidget {
         children: [
           Expanded(
               child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: _messages.length,
                   itemBuilder: (context, index) {
                     return ChatBubble(
-                        alignment: index % 2 == 0
-                            ? Alignment.centerLeft
-                            : Alignment.centerRight,
-                        entity: ChatMessageEntity(
-                            id: '1234',
-                            text: 'Hello this is Pooja!!!!!',
-                            createdAt: DateTime.now().millisecondsSinceEpoch,
-                            author: Author(userName: 'poojab26')));
+                        alignment: _messages[index].author.userName == "poojab26"
+                            ? Alignment.centerRight
+                            : Alignment.centerLeft,
+                        entity: _messages[index]
+                    );
                   })),
           ChatInput(),
         ],
