@@ -40,8 +40,11 @@ dependencies:
     git:
       url: https://github.com/nrubin29/social_media_buttons
       ref: null-safety
+  json_annotation: ^4.4.0
 
 dev_dependencies:
+  build_runner: ^2.0.0
+  json_serializable: ^6.0.0
   flutter_test:
     sdk: flutter
 
